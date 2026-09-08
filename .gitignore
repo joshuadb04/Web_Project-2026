@@ -1,0 +1,7 @@
+.vscode
+.idea
+node_modules
+.DS_Store
+.env
+uploads/*
+!uploads/.gitkeep
