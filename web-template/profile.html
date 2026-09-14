@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="stylesheet.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Profile</title>
+  </head>
+  <body>
+    <header>
+      <h1 id="logo">LOGO</h1>
+      <nav id="nav-bar" aria-label="Main navigation">
+        <div id="nav-select">
+          <a href="#">MENU</a>
+          <a href="#">LOCATIONS</a>
+          <a href="#">UNKNOWN</a>
+        </div>
+        <div id="nav-select2">
+          <a href="profile.html" aria-current="page">PROFILE</a>
+          <a href="login-register.html">LOGIN</a>
+        </div>
+      </nav>
+    </header>
+    <div class="container">
+      <main>
+        <h2 class="page-title">My Profile</h2>
+        <p
+          id="profile-message"
+          class="form-message"
+          role="status"
+          aria-live="polite"
+        ></p>
+
+        <section class="profile-card">
+          <form id="profile-form" class="profile-details">
+            <label for="profile-name">Username</label>
+            <input
+              id="profile-name"
+              name="username"
+              type="text"
+              disabled
+              required
+            />
+
+            <label for="profile-email">Email address</label>
+            <input id="profile-email" name="email" type="email" disabled />
+
+            <label for="current-password">Current password</label>
+            <input
+              id="current-password"
+              name="currentPassword"
+              type="password"
+              autocomplete="current-password"
+              disabled
+            />
+
+            <label for="new-password">New password</label>
+            <input
+              id="new-password"
+              name="newPassword"
+              type="password"
+              minlength="6"
+              autocomplete="new-password"
+              disabled
+            />
+
+            <label for="confirm-password">Confirm new password</label>
+            <input
+              id="confirm-password"
+              name="confirmPassword"
+              type="password"
+              minlength="6"
+              autocomplete="new-password"
+              disabled
+            />
+
+            <label for="profile-address">Address</label>
+            <textarea
+              id="profile-address"
+              name="address"
+              rows="3"
+              disabled
+            ></textarea>
+
+            <div class="profile-actions">
+              <button id="edit-button" type="button">Edit</button>
+              <button id="save-button" type="submit" hidden>Save</button>
+              <button
+                id="cancel-button"
+                class="secondary-button"
+                type="button"
+                hidden
+              >
+                Cancel
+              </button>
+              <button id="logout-button" class="secondary-button" type="button">
+                Log Out
+              </button>
+            </div>
+          </form>
+
+          <div class="profile-picture" role="img" aria-label="Profile picture placeholder">
+            <span id="profile-initial" aria-hidden="true"></span>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="profile.js"></script>
+  </body>
+</html>
