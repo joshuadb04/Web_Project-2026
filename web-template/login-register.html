@@ -4,51 +4,41 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="stylesheet.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
     <title>Login or Register</title>
   </head>
+
   <body>
     <header>
       <h1 id="logo">LOGO</h1>
-      <nav id="nav-bar" aria-label="Main navigation">
+
+      <nav id="nav-bar">
         <div id="nav-select">
           <a href="#">MENU</a>
           <a href="#">LOCATIONS</a>
           <a href="#">UNKNOWN</a>
         </div>
+
         <div id="nav-select2">
           <a href="profile.html">PROFILE</a>
-          <a href="login-register.html" aria-current="page">LOGIN</a>
+          <a href="login-register.html">LOGIN</a>
         </div>
       </nav>
     </header>
+
     <div class="container">
       <main>
         <h2 class="page-title">Welcome</h2>
-        <p class="page-intro">
-          Log in to your account or register as a new user.
-        </p>
-
-        <p
-          id="auth-message"
-          class="form-message"
-          role="status"
-          aria-live="polite"
-        ></p>
+        <p class="page-intro">Log in or create a new account.</p>
+        <p id="auth-message" class="form-message" role="status"></p>
 
         <div class="auth-forms">
           <section class="form-card">
             <h2>Log In</h2>
+
             <form id="login-form">
-              <label for="login-name">Username or email address</label>
+              <label for="login-name">Username or email</label>
               <input
                 id="login-name"
-                name="loginName"
                 type="text"
                 autocomplete="username"
                 required
@@ -57,7 +47,6 @@
               <label for="login-password">Password</label>
               <input
                 id="login-password"
-                name="loginPassword"
                 type="password"
                 autocomplete="current-password"
                 required
@@ -69,20 +58,19 @@
 
           <section class="form-card">
             <h2>Register</h2>
+
             <form id="register-form">
               <label for="register-name">Username</label>
               <input
                 id="register-name"
-                name="username"
                 type="text"
                 autocomplete="username"
                 required
               />
 
-              <label for="register-email">Email address</label>
+              <label for="register-email">Email</label>
               <input
                 id="register-email"
-                name="email"
                 type="email"
                 autocomplete="email"
                 required
@@ -91,7 +79,6 @@
               <label for="register-password">Password</label>
               <input
                 id="register-password"
-                name="password"
                 type="password"
                 minlength="6"
                 autocomplete="new-password"
@@ -104,6 +91,7 @@
         </div>
       </main>
     </div>
+
     <script src="auth.js"></script>
   </body>
 </html>
