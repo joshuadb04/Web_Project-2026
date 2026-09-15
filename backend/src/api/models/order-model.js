@@ -7,14 +7,14 @@ const listAllOrders = async () => {
 };
 
 const addOrder = async (order) => {
-  const { user_id, cost, status } = order;
+  const { user_id, status } = order;
 
   const sql = `
     INSERT INTO orders (user_id, cost, status)
     VALUES (?, ?, ?)
   `;
 
-  const params = [user_id, cost, status];
+  const params = [user_id, 0, status];
 
   const [rows] = await promisePool.execute(sql, params);
 
@@ -23,6 +23,24 @@ const addOrder = async (order) => {
   }
 
   return { order_id: rows.insertId };
+};
+
+const updateOrderCost = async (order_id, cost) => {
+  const sql = `
+    UPDATE orders
+    SET cost = ?
+    WHERE order_id = ?
+  `;
+
+  const params = [cost, order_id];
+
+  const [rows] = await promisePool.execute(sql, params);
+
+  if (rows.affectedRows === 0) {
+    return false;
+  }
+
+  return { message: "success" };
 };
 
 const findOrderById = async (id) => {
@@ -57,4 +75,4 @@ const removeOrder = async (id) => {
   return { message: "success" };
 };
 
-export { listAllOrders, addOrder, findOrderById, modifyOrder, removeOrder };
+export { listAllOrders, addOrder, findOrderById, modifyOrder, removeOrder, updateOrderCost };

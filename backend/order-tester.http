@@ -2,7 +2,7 @@
 GET http://localhost:3000/api/v1/orders
 
 ### Get order by ID
-GET http://localhost:3000/api/v1/orders/1
+GET http://localhost:3000/api/v1/orders/5
 
 ### Delete order
 DELETE http://localhost:3000/api/v1/orders/4
@@ -13,12 +13,11 @@ Content-Type: application/json
 
 {
   "user_id": 1,
-  "cost": 12.40,
   "status": "pending"
 }
 
 ### Update order
-PUT http://localhost:3000/api/v1/orders/1
+PUT http://localhost:3000/api/v1/orders/6
 Content-Type: application/json
 
 {

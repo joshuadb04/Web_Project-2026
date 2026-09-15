@@ -1,0 +1,31 @@
+### Get all order items
+GET http://localhost:3000/api/v1/order-items
+
+### Get order item by ID
+GET http://localhost:3000/api/v1/order-items/1
+
+### Delete order item
+DELETE http://localhost:3000/api/v1/order-items/1
+
+### Add order item
+POST http://localhost:3000/api/v1/order-items
+Content-Type: application/json
+
+{
+  "item_id": 2,
+  "quantity": 1,
+  "order_id": 6
+}
+
+### Update order item
+PUT http://localhost:3000/api/v1/order-items/1
+Content-Type: application/json
+
+{
+  "item_id": 1,
+  "quantity": 3,
+  "order_id": 3,
+  "total_cost": 17.70
+}
+
+
