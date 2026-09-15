@@ -1,6 +1,15 @@
 import express from "express";
+import userRouter from './routes/user_router.js';
+
 //import promisePool from "../utils/database.js";
 const router = express.Router();
+
+///router.post("/users", (req, res) => {
+   /// res.send("test");
+///});
+
+router.use('/users', userRouter);
+
 //const test = async () => {
 // const result = await promisePool.query("SELECT * FROM users");
 // console.log(result);
