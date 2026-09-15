@@ -2,7 +2,6 @@ import express from "express";
 import { body } from "express-validator";
 import { validationResult } from "express-validator";
 import { login, postUser } from "../controllers/user-controller.js";
-import { authenticate, authorizeAdmin } from "../middleware/auth.js";
 
 const userValidation = [
   body("first_name").trim().notEmpty(),
@@ -26,5 +25,4 @@ const userRouter = express.Router();
 
 userRouter.route("/").post(userValidation, checkValidation, postUser);
 userRouter.route("/login").post(loginValidation, checkValidation, login);
-userRouter.route('/admin').get(authenticate,authorizeAdmin);
 export default userRouter;
