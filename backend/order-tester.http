@@ -1,0 +1,28 @@
+### Get all orders
+GET http://localhost:3000/api/v1/orders
+
+### Get order by ID
+GET http://localhost:3000/api/v1/orders/1
+
+### Delete order
+DELETE http://localhost:3000/api/v1/orders/3
+
+### Add order
+POST http://localhost:3000/api/v1/orders
+Content-Type: application/json
+
+{
+  "user_id": 2,
+  "cost": 12.40,
+  "status": "pending"
+}
+
+### Update order
+PUT http://localhost:3000/api/v1/orders/1
+Content-Type: application/json
+
+{
+  "status": "completed"
+}
+
+
