@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="stylesheet.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Mochi & Milk - Profile</title>
+  </head>
+  <body>
+    <header>
+      <a href="index.html">
+        <h1 id="logo">MOCHI & MILK🧋</h1>
+      </a>
+      <nav id="nav-bar">
+        <div id="nav-select">
+          <a href="menu.html" id="a1">MENU</a>
+          <a href="index.html#locations" id="a2">LOCATIONS</a>
+          <a href="index.html#daily-drink" id="a3">D.O.T.D</a>
+        </div>
+        <div id="nav-select2">
+          <a href="profile.html" id="a4">PROFILE</a>
+          <a href="login-register.html" id="login">LOGIN</a>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container">
+      <main>
+        <h2 class="page-title">My Profile</h2>
+        <p id="profile-message" class="form-message" role="status"></p>
+
+        <section class="profile-card">
+          <form id="profile-form" class="profile-details">
+            <label for="profile-name">Username</label>
+            <input id="profile-name" type="text" required disabled />
+
+            <label for="profile-email">Email</label>
+            <input id="profile-email" type="email" required disabled />
+
+            <label for="profile-address">Address</label>
+            <textarea id="profile-address" rows="3" disabled></textarea>
+
+            <label for="current-password">Current password</label>
+            <input
+              id="current-password"
+              type="password"
+              autocomplete="current-password"
+              disabled
+            />
+
+            <label for="new-password">New password</label>
+            <input
+              id="new-password"
+              type="password"
+              minlength="6"
+              autocomplete="new-password"
+              disabled
+            />
+
+            <label for="confirm-password">Confirm new password</label>
+            <input
+              id="confirm-password"
+              type="password"
+              minlength="6"
+              autocomplete="new-password"
+              disabled
+            />
+
+            <div class="profile-actions">
+              <button id="edit-button" type="button">Edit</button>
+              <button id="save-button" type="submit" hidden>Save</button>
+              <button
+                id="cancel-button"
+                class="secondary-button"
+                type="button"
+                hidden
+              >
+                Cancel
+              </button>
+              <button id="logout-button" class="secondary-button" type="button">
+                Log Out
+              </button>
+            </div>
+          </form>
+
+          <div class="profile-picture" role="img" aria-label="Profile picture">
+            <span id="profile-initial"></span>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="profile.js"></script>
+  </body>
+</html>
