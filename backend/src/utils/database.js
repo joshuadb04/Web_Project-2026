@@ -1,6 +1,9 @@
 import mysql from "mysql2";
 import "dotenv/config";
 
+console.log("env", process.env
+)
+
 const pool = mysql.createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
