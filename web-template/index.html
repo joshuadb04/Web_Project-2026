@@ -10,8 +10,15 @@
       href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+
     <title>Mochi & Milk</title>
   </head>
+
   <body>
     <header>
       <a href="index.html">
@@ -90,12 +97,14 @@
         </section>
 
         <!--map-->
+
         <section id="locations" class="locations-section">
           <p class="small-title">FIND US</p>
           <h2>Your Nearest Boba ♡</h2>
           <p>Looking for a little boba break? Here's our nearest café.</p>
           <div class="location-container">
-            <div class="fake-map">
+
+            <!-- <div class="fake-map">
               <div class="map-road road-one"></div>
               <div class="map-road road-two"></div>
               <div class="map-road road-three"></div>
@@ -106,22 +115,38 @@
                 <br />
                 123 Boba Street
               </div>
-            </div>
+            </div> -->
+
+            <div id="map"></div>
+
             <div class="location-info">
               <h3>Nearest Café</h3>
               <p><strong>Mochi & Milk - City Center</strong></p>
 
-              <p>
+              <!-- <p>
                 123 Boba Street<br />
                 Helsinki
-              </p>
-              <p>♡ 5 min walk</p>
-              <button class="order-button">VIEW LOCATION</button>
+              </p> -->
+
+              <p>Kaivokatu 1, 00100 Helsinki</p>
+
+              <!-- <p>♡ 5 min walk</p> -->
+
+              <p id="distance"></p>
+
+              <!-- <button class="order-button">VIEW LOCATION</button> -->
+               
             </div>
           </div>
         </section>
+
+
       </main>
     </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="map.js"></script>
+
   </body>
 </html>
 <!--adding this comment for repository purposes-->
