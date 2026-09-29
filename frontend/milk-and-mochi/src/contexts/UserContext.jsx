@@ -21,8 +21,14 @@ const UserProvider = ({ children }) => {
     }
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setUser(null);
+    navigate("/login-register");
+  };
+
   return (
-    <UserContext.Provider value={{ user, handleLogin }}>
+    <UserContext.Provider value={{ user, handleLogin, handleLogout }}>
       {children}
     </UserContext.Provider>
   );

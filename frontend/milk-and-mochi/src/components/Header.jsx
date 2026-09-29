@@ -1,4 +1,9 @@
+import { useContext } from "react";
+import { UserContext } from "../contexts/UserContext.jsx";
+
 const Header = () => {
+  const { user, handleLogout } = useContext(UserContext);
+
   return (
     <header className="fixed top-0 left-1/2 z-50 flex h-22.5 w-full max-w-375 -translate-x-1/2 items-center justify-between border-b-2 border-[#f3dce6] bg-white">
       <a href="/">
@@ -27,9 +32,22 @@ const Header = () => {
             PROFILE
           </a>
 
-          <a className="transition hover:text-[#66506f]" href="/login-register">
-            LOGIN
-          </a>
+          {user ? (
+            <button
+              type="button"
+              onClick={handleLogout}
+              className="transition hover:text-[#66506f]"
+            >
+              LOGOUT
+            </button>
+          ) : (
+            <a
+              className="transition hover:text-[#66506f]"
+              href="/login-register"
+            >
+              LOGIN
+            </a>
+          )}
         </div>
       </nav>
     </header>
