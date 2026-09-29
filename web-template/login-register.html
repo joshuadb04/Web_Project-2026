@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="stylesheet.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Mochi & Milk - Login</title>
+  </head>
+  <body>
+    <header>
+      <a href="index.html">
+        <h1 id="logo">MOCHI & MILK🧋</h1>
+      </a>
+      <nav id="nav-bar">
+        <div id="nav-select">
+          <a href="menu.html" id="a1">MENU</a>
+          <a href="index.html#locations" id="a2">LOCATIONS</a>
+          <a href="index.html#daily-drink" id="a3">D.O.T.D</a>
+        </div>
+        <div id="nav-select2">
+          <a href="profile.html" id="a4">PROFILE</a>
+          <a href="login-register.html" id="login">LOGIN</a>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container">
+      <main>
+        <h2 class="page-title">Welcome</h2>
+        <p class="page-intro">Log in or create a new account.</p>
+        <p id="auth-message" class="form-message" role="status"></p>
+
+        <div class="auth-forms">
+          <section class="form-card">
+            <h2>Log In</h2>
+
+            <form id="login-form">
+              <label for="login-name">Username or email</label>
+              <input
+                id="login-name"
+                type="text"
+                autocomplete="username"
+                required
+              />
+
+              <label for="login-password">Password</label>
+              <input
+                id="login-password"
+                type="password"
+                autocomplete="current-password"
+                required
+              />
+
+              <button type="submit">Log In</button>
+            </form>
+          </section>
+
+          <section class="form-card">
+            <h2>Register</h2>
+
+            <form id="register-form">
+              <label for="register-name">Username</label>
+              <input
+                id="register-name"
+                type="text"
+                autocomplete="username"
+                required
+              />
+
+              <label for="register-email">Email</label>
+              <input
+                id="register-email"
+                type="email"
+                autocomplete="email"
+                required
+              />
+
+              <label for="register-password">Password</label>
+              <input
+                id="register-password"
+                type="password"
+                minlength="6"
+                autocomplete="new-password"
+                required
+              />
+
+              <button type="submit">Register</button>
+            </form>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
