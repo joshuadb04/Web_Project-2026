@@ -1,4 +1,5 @@
 import heroImage from "../assets/hero.png";
+import DailyDrink from "../components/DailyDrink";
 
 const Home = () => {
   return (
@@ -40,43 +41,7 @@ const Home = () => {
           </section>
 
           {/* Daily drink */}
-          <section
-            id="daily-drink"
-            className="bg-[#fff8fb] px-[10%] py-18 text-center"
-          >
-            <p className="text-sm font-semibold tracking-[2px] text-[#d982a8]">
-              TODAY'S SPECIAL
-            </p>
-
-            <h2 className="my-2.5 mb-7.5 text-4xl font-semibold text-[#574752]">
-              Drink of the Day
-            </h2>
-
-            <div className="mx-auto flex max-w-212.5 items-center gap-9 rounded-3xl border-2 border-[#f3dce6] bg-white p-7.5 text-left shadow-[0_8px_25px_rgba(100,70,80,0.08)]">
-              <div className="flex size-57.5 min-w-57.5 items-center justify-center rounded-2xl bg-[#ffe0eb] text-8xl">
-                🧋
-              </div>
-
-              <div>
-                <h3 className="mb-2.5 text-[28px] font-semibold text-[#d982a8]">
-                  Strawberry Cloud Milk
-                </h3>
-
-                <p className="mb-4 font-normal leading-relaxed">
-                  Creamy strawberry milk tea topped with a fluffy cloud of
-                  vanilla foam and strawberry pearls.
-                </p>
-
-                <p className="mb-4 text-2xl font-semibold text-[#83a997]">
-                  5.90€
-                </p>
-
-                <button className="cursor-pointer rounded-full bg-[#d982a8] px-5.5 py-3 font-semibold text-white transition hover:bg-[#b96891]">
-                  ADD TO ORDER
-                </button>
-              </div>
-            </div>
-          </section>
+          <DailyDrink />
 
           {/* Categories */}
           <section className="bg-[#eaf7f1] px-[10%] py-18 text-center">
@@ -116,7 +81,6 @@ const Home = () => {
               </div>
             </div>
           </section>
-
           {/* Location */}
           <section
             id="locations"

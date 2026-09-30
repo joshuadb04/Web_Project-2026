@@ -5,6 +5,8 @@ import LoginRegister from "./views/LoginRegister.jsx";
 import "./App.css";
 import { UserProvider } from "./contexts/UserContext.jsx";
 import Menu from "./views/Menu.jsx";
+import Single from "./views/Single.jsx";
+import Profile from "./views/Profile.jsx";
 
 const App = () => {
   return (
@@ -15,6 +17,8 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/login-register" element={<LoginRegister />} />
             <Route path="/menu" element={<Menu />} />
+            <Route path="/single" element={<Single />} />
+            <Route path="/profile" element={<Profile />} />
           </Route>
         </Routes>
       </UserProvider>

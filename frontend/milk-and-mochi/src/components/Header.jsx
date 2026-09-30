@@ -29,9 +29,11 @@ const Header = () => {
         </div>
 
         <div className="flex gap-10 pr-12 text-xl font-semibold">
-          <a className="transition hover:text-[#66506f]" href="/profile">
-            PROFILE
-          </a>
+          {user && (
+            <Link className="transition hover:text-[#66506f]" to="/profile">
+              PROFILE
+            </Link>
+          )}
 
           {user ? (
             <button

@@ -13,11 +13,11 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo1LCJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6InRlc3RAZXhhbXBsZS5jb20iLCJmaXJzdF9uYW1lIjoiVGVzdCIsImxhc3RfbmFtZSI6IlVzZXIiLCJpYXQiOjE3OTA3NzYyOTksImV4cCI6MTc5MDg2MjY5OX0.WP26MqOuY6CLGlH14sbSnKUQ0LMtVAg8JbhiT2UhGOo
 
 {
-  "name": "Mango Mochi",
-  "price": 4.90,
-  "description": "Soft mochi filled with sweet and fruity mango filling.",
+  "name": "Raspberry Fruit Tea",
+  "price": 5.80,
+  "description": "Refreshing black tea with sweet raspberry flavour and popping boba.",
   "dietary": "Gluten-free, Vegan",
-  "type": "Sweet Treat"
+  "type": "Daily Beverage"
 }
 
 ### Update menu item

@@ -9,6 +9,7 @@ import matchaLatte from "../assets/matcha-latte.png";
 import mangoFruitTea from "../assets/mango-fruit-tea.png";
 import leftArrow from "../assets/left-arrow.png";
 import rightArrow from "../assets/right-arrow.png";
+import { useNavigate } from "react-router";
 
 const Menu = () => {
   const menuImages = {
@@ -25,6 +26,7 @@ const Menu = () => {
   const sweetTreatsRef = useRef(null);
   const [menu, setMenu] = useState([]);
   const { getMenu } = useMenu();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchMenu = async () => {
@@ -77,6 +79,7 @@ const Menu = () => {
               .map((item) => (
                 <div
                   key={item.item_id}
+                  onClick={() => navigate("/single", { state: { item: item } })}
                   className="relative z-10 flex min-h-40 w-125 shrink-0 gap-4 rounded-[20px] border-2 border-[#f3dce6] bg-white p-5.5 transition duration-200 hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(100,70,80,0.08)]"
                 >
                   <img
@@ -116,6 +119,7 @@ const Menu = () => {
       {/* Pastries */}
       <section className="px-[10%] pb-5 pt-13.75">
         <h2 className="mb-7 text-[30px] text-[#83a997]">Pastries</h2>
+
         <div className="flex">
           <button
             type="button"
@@ -140,6 +144,7 @@ const Menu = () => {
               .map((item) => (
                 <div
                   key={item.item_id}
+                  onClick={() => navigate("/single", { state: { item: item } })}
                   className="relative z-10 flex min-h-40 w-125 shrink-0 gap-4 rounded-[20px] border-2 border-[#f3dce6] bg-white p-5.5 transition duration-200 hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(100,70,80,0.08)]"
                 >
                   <div className="flex h-32 w-32 shrink-0 items-center justify-center">
@@ -149,6 +154,7 @@ const Menu = () => {
                       alt={item.name}
                     />
                   </div>
+
                   <div>
                     <h3 className="mb-2 text-[19px]">{item.name}</h3>
                     <p className="mb-2.5 text-sm leading-normal">
@@ -208,6 +214,7 @@ const Menu = () => {
               .map((item) => (
                 <div
                   key={item.item_id}
+                  onClick={() => navigate("/single", { state: { item: item } })}
                   className="relative z-10 flex min-h-40 w-125 shrink-0 gap-4 rounded-[20px] border-2 border-[#f3dce6] bg-white p-5.5 transition duration-200 hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(100,70,80,0.08)]"
                 >
                   <div className="flex h-32 w-32 shrink-0 items-center justify-center">

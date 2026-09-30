@@ -53,4 +53,25 @@ const login = async (req, res, next) => {
   res.json({ message: "Success", token, user: payload });
 };
 
-export { postUser, login };
+const getUserByToken = async (req, res, next) => {
+  try {
+    const authorization = req.headers.authorization;
+
+    if (!authorization) {
+      const error = new Error("Token not found");
+      error.status = 401;
+      next(error);
+      return;
+    }
+
+    const token = authorization.split(" ")[1];
+    const user = jwt.verify(token, process.env.JWT_SECRET);
+
+    res.json({ user });
+  } catch (error) {
+    error.status = 401;
+    next(error);
+  }
+};
+
+export { postUser, login, getUserByToken };

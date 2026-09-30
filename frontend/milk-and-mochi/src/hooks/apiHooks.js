@@ -27,4 +27,21 @@ const useMenu = () => {
   return { getMenu };
 };
 
-export { useAuthentication, useMenu };
+const useUser = () => {
+  const getUserByToken = async (token) => {
+    const fetchOptions = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    return await fetchData(
+      import.meta.env.VITE_API_URL + "/users/token",
+      fetchOptions,
+    );
+  };
+
+  return { getUserByToken };
+};
+
+export { useAuthentication, useMenu, useUser };
