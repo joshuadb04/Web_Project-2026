@@ -19,4 +19,12 @@ const useAuthentication = () => {
   return { postLogin };
 };
 
-export { useAuthentication };
+const useMenu = () => {
+  const getMenu = async () => {
+    return await fetchData(import.meta.env.VITE_API_URL + "/menu");
+  };
+
+  return { getMenu };
+};
+
+export { useAuthentication, useMenu };

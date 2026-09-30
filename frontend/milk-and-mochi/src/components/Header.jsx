@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { UserContext } from "../contexts/UserContext.jsx";
+import { Link } from "react-router";
 
 const Header = () => {
   const { user, handleLogout } = useContext(UserContext);
@@ -18,13 +19,13 @@ const Header = () => {
             MENU
           </a>
 
-          <a className="transition hover:text-[#66506f]" href="#locations">
+          <Link className="transition hover:text-[#66506f]" to="/#locations">
             LOCATIONS
-          </a>
+          </Link>
 
-          <a className="transition hover:text-[#66506f]" href="#daily-drink">
-            D.O.T.D.
-          </a>
+          <Link className="transition hover:text-[#66506f]" to="/#daily-drink">
+            DAILY
+          </Link>
         </div>
 
         <div className="flex gap-10 pr-12 text-xl font-semibold">

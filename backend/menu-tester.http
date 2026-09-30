@@ -10,13 +10,14 @@ DELETE http://localhost:3000/api/v1/menu/6
 ### Add menu item
 POST http://localhost:3000/api/v1/menu
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo1LCJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6InRlc3RAZXhhbXBsZS5jb20iLCJmaXJzdF9uYW1lIjoiVGVzdCIsImxhc3RfbmFtZSI6IlVzZXIiLCJpYXQiOjE3OTA3NzYyOTksImV4cCI6MTc5MDg2MjY5OX0.WP26MqOuY6CLGlH14sbSnKUQ0LMtVAg8JbhiT2UhGOo
 
 {
-  "name": "del me",
+  "name": "Mango Mochi",
   "price": 4.90,
-  "description": "Soft matcha mochi with a sweet matcha filling",
+  "description": "Soft mochi filled with sweet and fruity mango filling.",
   "dietary": "Gluten-free, Vegan",
-  "type": "Mochi"
+  "type": "Sweet Treat"
 }
 
 ### Update menu item
