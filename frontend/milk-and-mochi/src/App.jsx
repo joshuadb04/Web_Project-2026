@@ -7,6 +7,7 @@ import { UserProvider } from "./contexts/UserContext.jsx";
 import Menu from "./views/Menu.jsx";
 import Single from "./views/Single.jsx";
 import Profile from "./views/Profile.jsx";
+import Edit from "./views/Edit.jsx";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
             <Route path="/menu" element={<Menu />} />
             <Route path="/single" element={<Single />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/edit" element={<Edit />} />
           </Route>
         </Routes>
       </UserProvider>

@@ -24,7 +24,23 @@ const useMenu = () => {
     return await fetchData(import.meta.env.VITE_API_URL + "/menu");
   };
 
-  return { getMenu };
+  const putMenuItem = async (id, item, token) => {
+    const fetchOptions = {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(item),
+    };
+
+    return await fetchData(
+      import.meta.env.VITE_API_URL + "/menu/" + id,
+      fetchOptions,
+    );
+  };
+
+  return { getMenu, putMenuItem };
 };
 
 const useUser = () => {

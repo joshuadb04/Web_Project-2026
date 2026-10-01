@@ -10,6 +10,8 @@ import mangoFruitTea from "../assets/mango-fruit-tea.png";
 import leftArrow from "../assets/left-arrow.png";
 import rightArrow from "../assets/right-arrow.png";
 import { useNavigate } from "react-router";
+import { useContext } from "react";
+import { UserContext } from "../contexts/UserContext.jsx";
 
 const Menu = () => {
   const menuImages = {
@@ -27,6 +29,7 @@ const Menu = () => {
   const [menu, setMenu] = useState([]);
   const { getMenu } = useMenu();
   const navigate = useNavigate();
+  const { user } = useContext(UserContext);
 
   useEffect(() => {
     const fetchMenu = async () => {
@@ -79,23 +82,44 @@ const Menu = () => {
               .map((item) => (
                 <div
                   key={item.item_id}
-                  onClick={() => navigate("/single", { state: { item: item } })}
                   className="relative z-10 flex min-h-40 w-125 shrink-0 gap-4 rounded-[20px] border-2 border-[#f3dce6] bg-white p-5.5 transition duration-200 hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(100,70,80,0.08)]"
                 >
-                  <img
-                    className="h-28 w-28 object-contain"
-                    src={menuImages[item.name]}
-                    alt={item.name}
-                  />
-                  <div>
-                    <h3 className="mb-2 text-[19px]">{item.name}</h3>
-                    <p className="mb-2.5 text-sm leading-normal">
-                      {item.description}
-                    </p>
-                    <span className="text-[17px] font-semibold text-[#d982a8]">
-                      {item.price} €
-                    </span>
+                  <div
+                    onClick={() =>
+                      navigate("/single", { state: { item: item } })
+                    }
+                    className="flex flex-1 cursor-pointer gap-4"
+                  >
+                    <img
+                      className="h-28 w-28 object-contain"
+                      src={menuImages[item.name]}
+                      alt={item.name}
+                    />
+
+                    <div>
+                      <h3 className="mb-2 text-[19px]">{item.name}</h3>
+
+                      <p className="mb-2.5 text-sm leading-normal">
+                        {item.description}
+                      </p>
+
+                      <span className="text-[17px] font-semibold text-[#d982a8]">
+                        {item.price} €
+                      </span>
+                    </div>
                   </div>
+
+                  {user && user.role === "admin" && (
+                    <button
+                      type="button"
+                      onClick={() =>
+                        navigate("/edit", { state: { item: item } })
+                      }
+                      className="mt-3 h-fit rounded-full bg-[#83a997] px-4 py-2 text-sm font-semibold text-white"
+                    >
+                      Edit
+                    </button>
+                  )}
                 </div>
               ))}
           </div>
@@ -144,26 +168,46 @@ const Menu = () => {
               .map((item) => (
                 <div
                   key={item.item_id}
-                  onClick={() => navigate("/single", { state: { item: item } })}
                   className="relative z-10 flex min-h-40 w-125 shrink-0 gap-4 rounded-[20px] border-2 border-[#f3dce6] bg-white p-5.5 transition duration-200 hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(100,70,80,0.08)]"
                 >
-                  <div className="flex h-32 w-32 shrink-0 items-center justify-center">
-                    <img
-                      className="max-h-full max-w-full object-contain"
-                      src={menuImages[item.name]}
-                      alt={item.name}
-                    />
+                  <div
+                    onClick={() =>
+                      navigate("/single", { state: { item: item } })
+                    }
+                    className="flex flex-1 cursor-pointer gap-4"
+                  >
+                    <div className="flex h-32 w-32 shrink-0 items-center justify-center">
+                      <img
+                        className="max-h-full max-w-full object-contain"
+                        src={menuImages[item.name]}
+                        alt={item.name}
+                      />
+                    </div>
+
+                    <div>
+                      <h3 className="mb-2 text-[19px]">{item.name}</h3>
+
+                      <p className="mb-2.5 text-sm leading-normal">
+                        {item.description}
+                      </p>
+
+                      <span className="text-[17px] font-semibold text-[#d982a8]">
+                        {item.price} €
+                      </span>
+                    </div>
                   </div>
 
-                  <div>
-                    <h3 className="mb-2 text-[19px]">{item.name}</h3>
-                    <p className="mb-2.5 text-sm leading-normal">
-                      {item.description}
-                    </p>
-                    <span className="text-[17px] font-semibold text-[#d982a8]">
-                      {item.price} €
-                    </span>
-                  </div>
+                  {user && user.role === "admin" && (
+                    <button
+                      type="button"
+                      onClick={() =>
+                        navigate("/edit", { state: { item: item } })
+                      }
+                      className="mt-3 h-fit rounded-full bg-[#83a997] px-4 py-2 text-sm font-semibold text-white"
+                    >
+                      Edit
+                    </button>
+                  )}
                 </div>
               ))}
           </div>
@@ -214,25 +258,46 @@ const Menu = () => {
               .map((item) => (
                 <div
                   key={item.item_id}
-                  onClick={() => navigate("/single", { state: { item: item } })}
                   className="relative z-10 flex min-h-40 w-125 shrink-0 gap-4 rounded-[20px] border-2 border-[#f3dce6] bg-white p-5.5 transition duration-200 hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(100,70,80,0.08)]"
                 >
-                  <div className="flex h-32 w-32 shrink-0 items-center justify-center">
-                    <img
-                      className="max-h-full max-w-full object-contain"
-                      src={menuImages[item.name]}
-                      alt={item.name}
-                    />
+                  <div
+                    onClick={() =>
+                      navigate("/single", { state: { item: item } })
+                    }
+                    className="flex flex-1 cursor-pointer gap-4"
+                  >
+                    <div className="flex h-32 w-32 shrink-0 items-center justify-center">
+                      <img
+                        className="max-h-full max-w-full object-contain"
+                        src={menuImages[item.name]}
+                        alt={item.name}
+                      />
+                    </div>
+
+                    <div>
+                      <h3 className="mb-2 text-[19px]">{item.name}</h3>
+
+                      <p className="mb-2.5 text-sm leading-normal">
+                        {item.description}
+                      </p>
+
+                      <span className="text-[17px] font-semibold text-[#d982a8]">
+                        {item.price} €
+                      </span>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="mb-2 text-[19px]">{item.name}</h3>
-                    <p className="mb-2.5 text-sm leading-normal">
-                      {item.description}
-                    </p>
-                    <span className="text-[17px] font-semibold text-[#d982a8]">
-                      {item.price} €
-                    </span>
-                  </div>
+
+                  {user && user.role === "admin" && (
+                    <button
+                      type="button"
+                      onClick={() =>
+                        navigate("/edit", { state: { item: item } })
+                      }
+                      className="mt-3 h-fit rounded-full bg-[#83a997] px-4 py-2 text-sm font-semibold text-white"
+                    >
+                      Edit
+                    </button>
+                  )}
                 </div>
               ))}
           </div>
