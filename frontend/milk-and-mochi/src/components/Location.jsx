@@ -91,7 +91,10 @@ const Location = () => {
   }, []);
 
   return (
-    <section id="locations" className="bg-[#fff8fb] px-10 py-17.5 text-center">
+    <section
+      id="locations"
+      className="z-0  bg-[#fff8fb] px-10 py-17.5 text-center"
+    >
       {/* Map */}
       <p className="text-sm font-semibold tracking-[2px] text-[#d982a8]">
         FIND US
