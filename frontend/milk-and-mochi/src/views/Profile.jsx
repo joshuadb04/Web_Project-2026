@@ -32,6 +32,12 @@ const Profile = () => {
             {user ? user.birthdate : ""}
           </p>
 
+          {user?.role === "admin" && (
+            <span className="mt-3 w-fit rounded-full bg-[#83a997] px-3 py-1 text-sm font-semibold text-white">
+              Admin
+            </span>
+          )}
+
           <div className="mt-5 flex gap-2.5">
             <button
               type="button"
@@ -51,9 +57,7 @@ const Profile = () => {
               className="size-full object-cover"
             />
           ) : (
-            <span>
-              {user ? user.first_name.charAt(0) + user.last_name.charAt(0) : ""}
-            </span>
+            <span></span>
           )}
         </div>
       </div>
