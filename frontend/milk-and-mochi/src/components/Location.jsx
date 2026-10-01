@@ -8,7 +8,7 @@ const Location = () => {
     name: "Mochi & Milk - Helsinki",
     address: "Kaivokatu 1, 00100 Helsinki",
     location: {
-      coordinates: [24.9414, 60.1719],
+      coordinates: [24.9414, 60.171],
     },
   };
 
