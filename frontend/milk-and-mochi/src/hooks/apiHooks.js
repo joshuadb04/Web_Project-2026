@@ -60,4 +60,60 @@ const useUser = () => {
   return { getUserByToken };
 };
 
-export { useAuthentication, useMenu, useUser };
+const useTransport = () => {
+  const getNearbyStops = async () => {
+    const query = {
+      query: `
+    {
+      stopsByBbox(
+        minLat: 60.170
+        maxLat: 60.173
+        minLon: 24.939
+        maxLon: 24.944
+      ) {
+        gtfsId
+        name
+        lat
+        lon
+        stoptimesForPatterns(numberOfDepartures: 1) {
+          stoptimes {
+            trip {
+              route {
+                shortName
+                mode
+                type
+              }
+            }
+          }
+        }
+      }
+    }
+  `,
+    };
+
+    const response = await fetch(
+      "https://api.digitransit.fi/routing/v2/hsl/gtfs/v1",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "digitransit-subscription-key": import.meta.env
+            .VITE_DIGITRANSIT_API_KEY,
+        },
+        body: JSON.stringify(query),
+      },
+    );
+
+    const json = await response.json();
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch nearby stops");
+    }
+
+    return json.data.stopsByBbox;
+  };
+
+  return { getNearbyStops };
+};
+
+export { useAuthentication, useMenu, useUser, useTransport };
