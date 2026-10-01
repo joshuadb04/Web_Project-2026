@@ -23,7 +23,7 @@ navigator.geolocation.getCurrentPosition(
     const distanceInKilometres = distance * 111;
 
     const result = document.querySelector("#distance");
-    result.innerHTML = `You are about ${distanceInKilometres.toFixed(1)} km from the café.`;
+    result.innerHTML = `You are about ${distanceInKilometres.toFixed(1)} km from the shop.`;
   },
 );
 
