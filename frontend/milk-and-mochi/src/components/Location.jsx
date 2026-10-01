@@ -133,7 +133,7 @@ const Location = () => {
       {/* Nearby stops */}
       <div className="mx-auto mt-6 w-2/3 rounded-3xl border-2 border-[#f3dce6] bg-white p-7.5 shadow-[0_8px_25px_rgba(100,70,80,0.08)]">
         <h4 className="mb-4 text-xl font-semibold text-[#66506f]">
-          Nearby public transport
+          Public transport near the café
         </h4>
 
         <div className="flex flex-col gap-2">

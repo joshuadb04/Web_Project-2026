@@ -75,7 +75,7 @@ const useTransport = () => {
         name
         lat
         lon
-        stoptimesForPatterns(numberOfDepartures: 1) {
+        stoptimesForPatterns(numberOfDepartures: 5) {
           stoptimes {
             trip {
               route {
