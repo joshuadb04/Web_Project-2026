@@ -40,7 +40,37 @@ const useMenu = () => {
     );
   };
 
-  return { getMenu, putMenuItem };
+  const postMenuItem = async (item, token) => {
+    const fetchOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(item),
+    };
+
+    return await fetchData(
+      import.meta.env.VITE_API_URL + "/menu",
+      fetchOptions,
+    );
+  };
+
+  const deleteMenuItem = async (id, token) => {
+    const fetchOptions = {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    return await fetchData(
+      import.meta.env.VITE_API_URL + "/menu/" + id,
+      fetchOptions,
+    );
+  };
+
+  return { getMenu, putMenuItem, deleteMenuItem, postMenuItem };
 };
 
 const useUser = () => {

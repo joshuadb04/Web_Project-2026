@@ -8,6 +8,7 @@ import Menu from "./views/Menu.jsx";
 import Single from "./views/Single.jsx";
 import Profile from "./views/Profile.jsx";
 import Edit from "./views/Edit.jsx";
+import Admin from "./views/AdminPage.jsx";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
             <Route path="/single" element={<Single />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/edit" element={<Edit />} />
+            <Route path="/admin" element={<Admin />} />
           </Route>
         </Routes>
       </UserProvider>

@@ -115,7 +115,7 @@ const Menu = () => {
                       onClick={() =>
                         navigate("/edit", { state: { item: item } })
                       }
-                      className="mt-3 h-fit rounded-full bg-[#83a997] px-4 py-2 text-sm font-semibold text-white"
+                      className="mt-3 h-fit rounded-full bg-[#83a997] px-4 py-2 text-sm font-semibold text-white hover:bg-[#628b78] cursor-pointer"
                     >
                       Edit
                     </button>
@@ -203,7 +203,7 @@ const Menu = () => {
                       onClick={() =>
                         navigate("/edit", { state: { item: item } })
                       }
-                      className="mt-3 h-fit rounded-full bg-[#83a997] px-4 py-2 text-sm font-semibold text-white"
+                      className="mt-3 h-fit rounded-full bg-[#83a997] px-4 py-2 text-sm font-semibold text-white hover:bg-[#628b78] cursor-pointer"
                     >
                       Edit
                     </button>
@@ -293,7 +293,7 @@ const Menu = () => {
                       onClick={() =>
                         navigate("/edit", { state: { item: item } })
                       }
-                      className="mt-3 h-fit rounded-full bg-[#83a997] px-4 py-2 text-sm font-semibold text-white"
+                      className="mt-3 h-fit rounded-full bg-[#83a997] px-4 py-2 text-sm font-semibold text-white hover:bg-[#628b78] cursor-pointer"
                     >
                       Edit
                     </button>

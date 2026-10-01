@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import { UserContext } from "../contexts/UserContext.jsx";
+import { useNavigate } from "react-router";
 
 const Profile = () => {
   const { user, handleLogout } = useContext(UserContext);
+  const navigate = useNavigate();
 
   return (
     <main className="mx-auto mt-22.5 max-w-375 px-[10%] py-18">
@@ -33,9 +35,12 @@ const Profile = () => {
           </p>
 
           {user?.role === "admin" && (
-            <span className="mt-3 w-fit rounded-full bg-[#83a997] px-3 py-1 text-sm font-semibold text-white">
+            <button
+              onClick={() => navigate("/admin")}
+              className="mt-3 w-fit rounded-full bg-[#83a997] px-3 py-1 text-sm font-semibold text-white hover:bg-[#628b78] cursor-pointer"
+            >
               Admin
-            </span>
+            </button>
           )}
 
           <div className="mt-5 flex gap-2.5">

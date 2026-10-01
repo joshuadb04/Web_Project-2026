@@ -12,3 +12,7 @@ body {
 .leaflet-container {
   z-index: 0;
 }
+
+button {
+  cursor: pointer;
+}
