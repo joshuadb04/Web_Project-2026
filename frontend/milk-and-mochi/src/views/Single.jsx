@@ -50,7 +50,9 @@ const Single = () => {
             {item.price} €
           </p>
 
-          <p className="mb-7 text-sm text-[#574752]">{item.dietary}</p>
+          <p className="mb-7 text-sm text-[#574752]">
+            Dietary Info: {item.dietary}
+          </p>
 
           <button
             type="button"
