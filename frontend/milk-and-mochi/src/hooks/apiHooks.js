@@ -16,7 +16,22 @@ const useAuthentication = () => {
     );
   };
 
-  return { postLogin };
+  const postRegister = async (user) => {
+    const fetchOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    };
+
+    return await fetchData(
+      import.meta.env.VITE_API_URL + "/users",
+      fetchOptions,
+    );
+  };
+
+  return { postLogin, postRegister };
 };
 
 const useMenu = () => {
@@ -87,7 +102,42 @@ const useUser = () => {
     );
   };
 
-  return { getUserByToken };
+  const putUser = async (id, user, token) => {
+    const fetchOptions = {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(user),
+    };
+
+    return await fetchData(
+      import.meta.env.VITE_API_URL + "/users/" + id,
+      fetchOptions,
+    );
+  };
+
+  const putPassword = async (currentPassword, newPassword, token) => {
+    const fetchOptions = {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        currentPassword,
+        newPassword,
+      }),
+    };
+
+    return await fetchData(
+      import.meta.env.VITE_API_URL + "/users/password",
+      fetchOptions,
+    );
+  };
+
+  return { getUserByToken, putUser, putPassword };
 };
 
 const useTransport = () => {

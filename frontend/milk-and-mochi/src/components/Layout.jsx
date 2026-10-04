@@ -16,7 +16,7 @@ const Layout = () => {
         section.scrollIntoView();
       }
     }
-  }, [location]);
+  }, []);
 
   return (
     <>

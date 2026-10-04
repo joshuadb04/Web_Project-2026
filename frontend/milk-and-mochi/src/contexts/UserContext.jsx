@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { useAuthentication, useUser } from "../hooks/apiHooks.js";
 
 const UserContext = createContext(null);
@@ -9,6 +9,7 @@ const UserProvider = ({ children }) => {
   const { postLogin } = useAuthentication();
   const { getUserByToken } = useUser();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLogin = async (credentials) => {
     try {
@@ -31,15 +32,11 @@ const UserProvider = ({ children }) => {
   const handleAutoLogin = async () => {
     try {
       const token = localStorage.getItem("token");
+      const result = token ? await getUserByToken(token) : null;
 
-      if (!token) {
-        return;
-      }
-
-      const result = await getUserByToken(token);
-      setUser(result.user);
+      result ? setUser(result.user) : null;
+      result ? navigate(location.pathname) : null;
     } catch (error) {
-      localStorage.removeItem("token");
       console.log(error.message);
     }
   };

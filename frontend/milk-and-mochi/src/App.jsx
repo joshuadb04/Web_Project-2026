@@ -9,6 +9,8 @@ import Single from "./views/Single.jsx";
 import Profile from "./views/Profile.jsx";
 import Edit from "./views/Edit.jsx";
 import Admin from "./views/AdminPage.jsx";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
+import AdminProtectedRoute from "./components/AdminProtectedRoute.jsx";
 
 const App = () => {
   return (
@@ -20,9 +22,23 @@ const App = () => {
             <Route path="/login-register" element={<LoginRegister />} />
             <Route path="/menu" element={<Menu />} />
             <Route path="/single" element={<Single />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute>
+                  <Profile />
+                </ProtectedRoute>
+              }
+            />
             <Route path="/edit" element={<Edit />} />
-            <Route path="/admin" element={<Admin />} />
+            <Route
+              path="/admin"
+              element={
+                <AdminProtectedRoute>
+                  <Admin />
+                </AdminProtectedRoute>
+              }
+            />
           </Route>
         </Routes>
       </UserProvider>
