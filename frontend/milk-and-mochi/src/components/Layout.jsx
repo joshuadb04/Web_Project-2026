@@ -9,6 +9,9 @@ const Layout = () => {
 
   useEffect(() => {
     handleAutoLogin();
+  }, []);
+
+  useEffect(() => {
     if (location.hash) {
       const section = document.getElementById(location.hash.substring(1));
 
@@ -16,7 +19,7 @@ const Layout = () => {
         section.scrollIntoView();
       }
     }
-  }, []);
+  }, [location]);
 
   return (
     <>
