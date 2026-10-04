@@ -137,7 +137,25 @@ const useUser = () => {
     );
   };
 
-  return { getUserByToken, putUser, putPassword };
+  const putProfilePicture = async (id, file, token) => {
+    const formData = new FormData();
+    formData.append("profile", file);
+
+    const fetchOptions = {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      body: formData,
+    };
+
+    return await fetchData(
+      import.meta.env.VITE_API_URL + "/users/" + id + "/profile-picture",
+      fetchOptions,
+    );
+  };
+
+  return { getUserByToken, putUser, putPassword, putProfilePicture };
 };
 
 const useTransport = () => {

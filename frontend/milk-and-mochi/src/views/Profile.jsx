@@ -6,13 +6,14 @@ import { useUser } from "../hooks/apiHooks.js";
 const Profile = () => {
   const { user, handleLogout } = useContext(UserContext);
   const navigate = useNavigate();
-  const { putUser, putPassword } = useUser();
+  const { putUser, putPassword, putProfilePicture } = useUser();
 
   const [firstName, setFirstName] = useState(user?.first_name || "");
   const [lastName, setLastName] = useState(user?.last_name || "");
   const [email, setEmail] = useState(user?.email || "");
   const [birthdate, setBirthdate] = useState(user?.birthdate || "");
   const [filename, setFilename] = useState(user?.filename || "");
+  const [profileFile, setProfileFile] = useState(null);
 
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
@@ -107,6 +108,23 @@ const Profile = () => {
           />
 
           <p className="mt-1 text-sm text-red-500">{passwordMessage}</p>
+
+          {/* Toggle for profile pic */}
+          {editing && (
+            <div>
+              <label className="mt-2 block font-semibold">
+                Change Profile Picture
+              </label>
+
+              <input
+                type="file"
+                accept="image/*"
+                onChange={(event) => setProfileFile(event.target.files[0])}
+                className="file:mr-3 file:cursor-pointer file:rounded-full file:border-0 file:bg-[#d982a8] file:px-5 file:py-2.5 file:font-semibold file:text-white file:hover:bg-[#d96891]"
+              />
+            </div>
+          )}
+
           {/* Admin button for admins only */}
           {user?.role === "admin" && (
             <button
@@ -120,64 +138,81 @@ const Profile = () => {
           {/* Button and editing functionality */}
           <div className="mt-5 flex gap-2.5">
             {editing ? (
-              <button
-                type="button"
-                onClick={async () => {
-                  try {
-                    if (currentPassword || newPassword || confirmPassword) {
-                      if (
-                        !currentPassword ||
-                        !newPassword ||
-                        !confirmPassword
-                      ) {
-                        setPasswordMessage(
-                          "Please fill in all password fields",
-                        );
-                        return;
+              <>
+                <button
+                  type="button"
+                  onClick={async () => {
+                    try {
+                      if (currentPassword || newPassword || confirmPassword) {
+                        if (
+                          !currentPassword ||
+                          !newPassword ||
+                          !confirmPassword
+                        ) {
+                          setPasswordMessage(
+                            "Please fill in all password fields",
+                          );
+                          return;
+                        }
+
+                        if (newPassword !== confirmPassword) {
+                          setPasswordMessage("New passwords do not match");
+                          return;
+                        }
                       }
 
-                      if (newPassword !== confirmPassword) {
-                        setPasswordMessage("New passwords do not match");
-                        return;
-                      }
-                    }
+                      setPasswordMessage("");
 
-                    setPasswordMessage("");
-
-                    await putUser(
-                      user.user_id,
-                      {
-                        first_name: firstName,
-                        last_name: lastName,
-                        email: email,
-                        birthdate: birthdate || null,
-                        filename: filename,
-                      },
-                      localStorage.getItem("token"),
-                    );
-
-                    if (currentPassword && newPassword) {
-                      await putPassword(
-                        currentPassword,
-                        newPassword,
+                      await putUser(
+                        user.user_id,
+                        {
+                          first_name: firstName,
+                          last_name: lastName,
+                          email: email,
+                          birthdate: birthdate || null,
+                          filename: filename,
+                        },
                         localStorage.getItem("token"),
                       );
-                    }
 
-                    window.location.reload();
-                  } catch (error) {
-                    //console.log(error.message);
-                    if (error.message.includes("Unexpected token")) {
-                      setPasswordMessage("Current password is incorrect");
-                    } else {
-                      setPasswordMessage(error.message);
+                      if (profileFile) {
+                        await putProfilePicture(
+                          user.user_id,
+                          profileFile,
+                          localStorage.getItem("token"),
+                        );
+                      }
+
+                      if (currentPassword && newPassword) {
+                        await putPassword(
+                          currentPassword,
+                          newPassword,
+                          localStorage.getItem("token"),
+                        );
+                      }
+
+                      window.location.reload();
+                    } catch (error) {
+                      //console.log(error.message);
+                      if (error.message.includes("Unexpected token")) {
+                        setPasswordMessage("Current password is incorrect");
+                      } else {
+                        setPasswordMessage(error.message);
+                      }
                     }
-                  }
-                }}
-                className="rounded-full bg-[#83a997] px-5 py-2.5 font-semibold text-white transition hover:bg-[#628b78]"
-              >
-                Save
-              </button>
+                  }}
+                  className="rounded-full bg-[#83a997] px-5 py-2.5 font-semibold text-white transition hover:bg-[#628b78]"
+                >
+                  Save
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setEditing(false)}
+                  className="rounded-full bg-[#ff2b59] px-5 py-2.5 font-semibold text-white transition hover:bg-[#d96891]"
+                >
+                  Cancel
+                </button>
+              </>
             ) : (
               <button
                 type="button"
@@ -208,7 +243,7 @@ const Profile = () => {
         <div className="flex size-45 shrink-0 items-center justify-center overflow-hidden rounded-full border-8 border-white bg-[#d9f0e7] text-6xl text-[#607fa3] shadow-[0_8px_20px_rgba(100,70,80,0.1)]">
           {user?.filename ? (
             <img
-              src={user.filename}
+              src={`${import.meta.env.VITE_UPLOAD_URL}/${user.filename}`}
               alt="Profile"
               className="size-full object-cover"
             />
