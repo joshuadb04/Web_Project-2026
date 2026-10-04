@@ -3,10 +3,28 @@ import { useMenu } from "../hooks/apiHooks.js";
 import brownSugarMilkTea from "../assets/brown-sugar-milk-tea.png";
 import creamCheeseMilkTea from "../assets/cream-cheese-milk-tea.png";
 import passionFruitTea from "../assets/passion-fruit-tea.png";
+//import matchaMochi from "../assets/matcha-mochi.png";
 import classicMilkTea from "../assets/classic-milk-tea.png";
 import strawberryMilkTea from "../assets/strawberry-milk-tea.png";
 import matchaLatte from "../assets/matcha-latte.png";
 import mangoFruitTea from "../assets/mango-fruit-tea.png";
+import strawberryCroissant from "../assets/strawberry-croissant.png";
+import brownSugarCookie from "../assets/brown-sugar-cookie.png";
+import vanillaCupcake from "../assets/vanilla-cupcake.png";
+import matchaMacarons from "../assets/matcha-macarons.png";
+import strawberryCake from "../assets/strawberry-cake.png";
+import mochiBox from "../assets/mochi-box.png";
+import chocolateBrownie from "../assets/chocolate-brownie.png";
+import chocolateMatchaDonut from "../assets/chocolate-matcha-donut.png";
+import strawberryCreamMochi from "../assets/strawberry-cream-mochi.png";
+import mangoMochi from "../assets/mango-mochi.png";
+import taroMilkTea from "../assets/taro-milk-tea.png";
+//import strawberryMatchaLatte from "../assets/strawberry-matcha-latte.png";
+//import peachFruitTea from "../assets/peach-fruit-tea.png";
+//import passionFruitMangoTea from "../assets/passion-fruit-mango-tea.png";
+//import mintChocolateMilkTea from "../assets/mint-chocolate-milk-tea.png";
+//import chocolateMilkTea from "../assets/chocolate-milk-tea.png";
+//import raspberryFruitTea from "../assets/raspberry-fruit-tea.png";
 import leftArrow from "../assets/left-arrow.png";
 import rightArrow from "../assets/right-arrow.png";
 import { useNavigate } from "react-router";
@@ -18,10 +36,28 @@ const Menu = () => {
     "Brown Sugar Milk Tea": brownSugarMilkTea,
     "Cream Cheese Milk Tea": creamCheeseMilkTea,
     "Passion Fruit Tea": passionFruitTea,
+    //"Matcha Mochi": matchaMochi,
     "Classic Milk Tea": classicMilkTea,
     "Strawberry Milk Tea": strawberryMilkTea,
     "Matcha Latte": matchaLatte,
     "Mango Fruit Tea": mangoFruitTea,
+    "Strawberry Croissant": strawberryCroissant,
+    "Brown Sugar Cookie": brownSugarCookie,
+    "Vanilla Cupcake": vanillaCupcake,
+    "Matcha Macarons": matchaMacarons,
+    "Strawberry Cake": strawberryCake,
+    "Mochi Box": mochiBox,
+    "Chocolate Brownie": chocolateBrownie,
+    "Chocolate Matcha Donut": chocolateMatchaDonut,
+    "Strawberry Cream Mochi": strawberryCreamMochi,
+    "Mango Mochi": mangoMochi,
+    "Taro Milk Tea": taroMilkTea,
+    //"Strawberry Matcha Latte": strawberryMatchaLatte,
+    //"Peach Fruit Tea": peachFruitTea,
+    //"Passion Fruit Mango Tea": passionFruitMangoTea,
+    //"Mint Chocolate Milk Tea": mintChocolateMilkTea,
+    //"Chocolate Milk Tea": chocolateMilkTea,
+    //"Raspberry Fruit Tea": raspberryFruitTea,
   };
   const beveragesRef = useRef(null);
   const pastriesRef = useRef(null);
