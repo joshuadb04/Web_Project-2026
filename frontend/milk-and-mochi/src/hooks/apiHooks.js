@@ -214,4 +214,42 @@ const useTransport = () => {
   return { getNearbyStops };
 };
 
-export { useAuthentication, useMenu, useUser, useTransport };
+const useOrder = () => {
+  const postOrder = async (order) => {
+    const fetchOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(order),
+    };
+
+    return await fetchData(
+      import.meta.env.VITE_API_URL + "/orders",
+      fetchOptions,
+    );
+  };
+
+  const postOrderItem = async (orderItem) => {
+    const fetchOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(orderItem),
+    };
+
+    return await fetchData(
+      import.meta.env.VITE_API_URL + "/order-items",
+      fetchOptions,
+    );
+  };
+
+  const getOrders = async () => {
+    return await fetchData(import.meta.env.VITE_API_URL + "/orders");
+  };
+
+  return { postOrder, postOrderItem, getOrders };
+};
+
+export { useAuthentication, useMenu, useUser, useTransport, useOrder };

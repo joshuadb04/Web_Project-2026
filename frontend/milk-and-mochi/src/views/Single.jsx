@@ -1,4 +1,6 @@
 import { useLocation } from "react-router";
+import { useContext } from "react";
+import { CartContext } from "../contexts/CartContext.jsx";
 import brownSugarMilkTea from "../assets/brown-sugar-milk-tea.png";
 import creamCheeseMilkTea from "../assets/cream-cheese-milk-tea.png";
 import passionFruitTea from "../assets/passion-fruit-tea.png";
@@ -9,6 +11,7 @@ import mangoFruitTea from "../assets/mango-fruit-tea.png";
 import { useNavigate } from "react-router";
 
 const Single = () => {
+  const { addToCart } = useContext(CartContext);
   const { state } = useLocation();
   const item = state.item;
   const navigate = useNavigate();
@@ -56,7 +59,10 @@ const Single = () => {
 
           <button
             type="button"
-            onClick={() => navigate("/menu")}
+            onClick={() => {
+              addToCart(item);
+              navigate("/menu");
+            }}
             className="w-fit cursor-pointer rounded-full bg-[#d982a8] px-6 py-3 font-semibold text-white transition hover:bg-[#b96891]"
           >
             ADD TO CART

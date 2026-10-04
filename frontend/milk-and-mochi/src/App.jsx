@@ -11,36 +11,48 @@ import Edit from "./views/Edit.jsx";
 import Admin from "./views/AdminPage.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import AdminProtectedRoute from "./components/AdminProtectedRoute.jsx";
+import Cart from "./views/Cart.jsx";
+import { CartProvider } from "./contexts/CartContext.jsx";
 
 const App = () => {
   return (
     <BrowserRouter basename={import.meta.env.BASE_URL}>
       <UserProvider>
-        <Routes>
-          <Route element={<Layout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/login-register" element={<LoginRegister />} />
-            <Route path="/menu" element={<Menu />} />
-            <Route path="/single" element={<Single />} />
-            <Route
-              path="/profile"
-              element={
-                <ProtectedRoute>
-                  <Profile />
-                </ProtectedRoute>
-              }
-            />
-            <Route path="/edit" element={<Edit />} />
-            <Route
-              path="/admin"
-              element={
-                <AdminProtectedRoute>
-                  <Admin />
-                </AdminProtectedRoute>
-              }
-            />
-          </Route>
-        </Routes>
+        <CartProvider>
+          <Routes>
+            <Route element={<Layout />}>
+              <Route path="/" element={<Home />} />
+              <Route path="/login-register" element={<LoginRegister />} />
+              <Route path="/menu" element={<Menu />} />
+              <Route path="/single" element={<Single />} />
+              <Route
+                path="/profile"
+                element={
+                  <ProtectedRoute>
+                    <Profile />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/cart"
+                element={
+                  <ProtectedRoute>
+                    <Cart />
+                  </ProtectedRoute>
+                }
+              />
+              <Route path="/edit" element={<Edit />} />
+              <Route
+                path="/admin"
+                element={
+                  <AdminProtectedRoute>
+                    <Admin />
+                  </AdminProtectedRoute>
+                }
+              />
+            </Route>
+          </Routes>
+        </CartProvider>
       </UserProvider>
     </BrowserRouter>
   );

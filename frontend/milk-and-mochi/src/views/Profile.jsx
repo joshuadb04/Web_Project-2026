@@ -1,12 +1,13 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../contexts/UserContext.jsx";
 import { useNavigate } from "react-router";
-import { useUser } from "../hooks/apiHooks.js";
+import { useOrder, useUser } from "../hooks/apiHooks.js";
 
 const Profile = () => {
   const { user, handleLogout } = useContext(UserContext);
   const navigate = useNavigate();
   const { putUser, putPassword, putProfilePicture } = useUser();
+  const { getOrders } = useOrder();
 
   const [firstName, setFirstName] = useState(user?.first_name || "");
   const [lastName, setLastName] = useState(user?.last_name || "");
@@ -19,6 +20,22 @@ const Profile = () => {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordMessage, setPasswordMessage] = useState("");
+
+  const [orders, setOrders] = useState([]);
+
+  useEffect(() => {
+    const fetchOrders = async () => {
+      const result = await getOrders();
+
+      const userOrders = result.filter(
+        (order) => order.user_id === user.user_id,
+      );
+
+      setOrders(userOrders);
+    };
+
+    fetchOrders();
+  }, []);
 
   const [editing, setEditing] = useState(false);
   //console.log(user.birthdate);
@@ -249,6 +266,28 @@ const Profile = () => {
             />
           ) : (
             <span></span>
+          )}
+        </div>
+      </div>
+      <div className="mx-auto mt-10 max-w-5xl">
+        <h3 className="text-2xl font-semibold text-[#d982a8]">My Orders</h3>
+
+        <div className="mt-4 max-h-75 overflow-y-auto rounded-2xl border-2 border-[#f3dce6] bg-white p-5">
+          {orders.length === 0 ? (
+            <p className="text-[#574752]">You have no orders yet.</p>
+          ) : (
+            orders.map((order) => (
+              <div
+                key={order.order_id}
+                className="mb-3 rounded-xl bg-[#fff8fb] p-4"
+              >
+                <p className="font-semibold text-[#574752]">
+                  Order #{order.order_id}
+                </p>
+                <p className="text-[#83a997]">Status: {order.status}</p>
+                <p className="text-[#574752]">Total: {order.cost} €</p>
+              </div>
+            ))
           )}
         </div>
       </div>
