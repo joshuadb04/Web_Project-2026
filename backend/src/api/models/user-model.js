@@ -82,4 +82,22 @@ const updatePassword = async (password, id) => {
   return { message: "Password updated." };
 };
 
-export { addUser, findUserByEmail, findUserById, updateUser, updatePassword };
+const updateFilename = async (filename, id) => {
+  const sql = `
+    UPDATE users
+    SET filename = ?
+    WHERE user_id = ?
+  `;
+
+  const params = [filename, id];
+
+  const [rows] = await promisePool.execute(sql, params);
+
+  if (rows.affectedRows === 0) {
+    return false;
+  }
+
+  return { message: "Profile picture updated." };
+};
+
+export { addUser, findUserByEmail, findUserById, updateUser, updatePassword, updateFilename };

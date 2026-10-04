@@ -1,0 +1,20 @@
+### Login user
+POST http://localhost:3000/api/v1/users/login
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "password": "password123"
+}
+
+### Upload profile picture
+PUT http://127.0.0.1:3000/api/v1/users/5/profile-picture
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo1LCJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6InRlc3RAZXhhbXBsZS5jb20iLCJmaXJzdF9uYW1lIjoiVGVzdCIsImxhc3RfbmFtZSI6IlVzZXIiLCJpYXQiOjE3OTA3NzYyOTksImV4cCI6MTc5MDg2MjY5OX0.WP26MqOuY6CLGlH14sbSnKUQ0LMtVAg8JbhiT2UhGOo
+Content-Type: multipart/form-data; boundary=MyBoundary
+
+--MyBoundary
+Content-Disposition: form-data; name="profile"; filename="profile.png"
+Content-Type: image/png
+
+< ./test/profile.png
+--MyBoundary--

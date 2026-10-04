@@ -1,4 +1,11 @@
-import { addUser, findUserByEmail, findUserById, updateUser, updatePassword } from "../models/user-model.js";
+import {
+  addUser,
+  findUserByEmail,
+  findUserById,
+  updateUser,
+  updatePassword,
+  updateFilename,
+} from "../models/user-model.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
@@ -132,4 +139,27 @@ const putPassword = async (req, res, next) => {
   }
 };
 
-export { postUser, login, getUserByToken, putUser, putPassword };
+const putProfilePicture = async (req, res, next) => {
+  try {
+    if (!req.file) {
+      const error = new Error("No file uploaded");
+      error.status = 400;
+      next(error);
+      return;
+    }
+
+    const result = await updateFilename(req.file.filename, req.params.id);
+
+    if (result) {
+      res.json(result);
+    } else {
+      const error = new Error("User not found");
+      error.status = 404;
+      next(error);
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
+export { postUser, login, getUserByToken, putUser, putPassword, putProfilePicture };
