@@ -21,7 +21,7 @@ const Profile = () => {
   const [passwordMessage, setPasswordMessage] = useState("");
 
   const [editing, setEditing] = useState(false);
-
+  //console.log(user.birthdate);
   return (
     <main className="mx-auto mt-22.5 min-h-screen w-full max-w-375 bg-[#fff8fb] px-5 py-18">
       <h2 className="mt-2 text-center text-4xl font-semibold text-[#d982a8]">

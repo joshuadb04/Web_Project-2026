@@ -33,7 +33,10 @@ const findUserByEmail = async (email) => {
 };
 
 const findUserById = async (id) => {
-  const [rows] = await promisePool.query("SELECT * FROM users WHERE user_id = ?", [id]);
+  const [rows] = await promisePool.query(
+    "SELECT *, DATE_FORMAT(birthdate, '%Y-%m-%d') AS birthdate FROM users WHERE user_id = ?",
+    [id],
+  );
 
   if (rows.length === 0) {
     return false;
