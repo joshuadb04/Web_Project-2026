@@ -1,4 +1,7 @@
 import heroImage from "../assets/hero.png";
+import classicMilkTea from "../assets/classic-milk-tea.png";
+import strawberryCroissant from "../assets/strawberry-croissant.png";
+import mochiBox from "../assets/mochi-box.png";
 import DailyDrink from "../components/DailyDrink";
 import Location from "../components/Location";
 
@@ -35,7 +38,7 @@ const Home = () => {
                 <img
                   src={heroImage}
                   alt="Boba milk tea"
-                  className="h-full w-full object-contain"
+                  className="h-full w-full object-contain drop-shadow-[0_10px_15px_rgba(100,70,80,0.2)] animate-[heroEnter_0.7s_cubic-bezier(0.22,1,0.36,1)]"
                 />
               </div>
             </div>
@@ -52,30 +55,54 @@ const Home = () => {
 
             <div className="mx-auto grid max-w-250 grid-cols-3 gap-6">
               <div className="rounded-[22px] border-2 border-[#d6ece2] bg-white px-5 py-7.5">
-                <div className="mb-4 text-5xl">🧋</div>
+                <div className="mb-4 flex h-30 items-center justify-center">
+                  <img
+                    src={classicMilkTea}
+                    alt="Classic Milk Tea"
+                    className="h-full object-contain"
+                  />
+                </div>
+
                 <h3 className="mb-2.5 text-xl font-semibold text-[#574752]">
                   Boba Drinks
                 </h3>
+
                 <p className="font-normal leading-relaxed">
                   Milk teas, fruit teas and refreshing drinks.
                 </p>
               </div>
 
               <div className="rounded-[22px] border-2 border-[#d6ece2] bg-white px-5 py-7.5">
-                <div className="mb-4 text-5xl">🥐</div>
+                <div className="mb-4 flex h-30 items-center justify-center">
+                  <img
+                    src={strawberryCroissant}
+                    alt="Strawberry Croissant"
+                    className="h-full object-contain"
+                  />
+                </div>
+
                 <h3 className="mb-2.5 text-xl font-semibold text-[#574752]">
                   Pastries
                 </h3>
+
                 <p className="font-normal leading-relaxed">
                   Fresh and fluffy treats baked with love.
                 </p>
               </div>
 
               <div className="rounded-[22px] border-2 border-[#d6ece2] bg-white px-5 py-7.5">
-                <div className="mb-4 text-5xl">🍰</div>
+                <div className="mb-4 flex h-30 items-center justify-center">
+                  <img
+                    src={mochiBox}
+                    alt="Mochi Box"
+                    className="h-full object-contain"
+                  />
+                </div>
+
                 <h3 className="mb-2.5 text-xl font-semibold text-[#574752]">
                   Sweet Treats
                 </h3>
+
                 <p className="font-normal leading-relaxed">
                   Cakes, mochi and other little delights.
                 </p>

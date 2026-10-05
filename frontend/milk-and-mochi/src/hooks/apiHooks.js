@@ -249,7 +249,23 @@ const useOrder = () => {
     return await fetchData(import.meta.env.VITE_API_URL + "/orders");
   };
 
-  return { postOrder, postOrderItem, getOrders };
+  const putOrder = async (id, order, token) => {
+    const fetchOptions = {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + token,
+      },
+      body: JSON.stringify(order),
+    };
+
+    return await fetchData(
+      import.meta.env.VITE_API_URL + "/orders/" + id,
+      fetchOptions,
+    );
+  };
+
+  return { postOrder, postOrderItem, getOrders, putOrder };
 };
 
 export { useAuthentication, useMenu, useUser, useTransport, useOrder };

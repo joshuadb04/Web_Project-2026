@@ -1,9 +1,28 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useMenu } from "../hooks/apiHooks.js";
+import { CartContext } from "../contexts/CartContext.jsx";
+import taroMilkTea from "../assets/taro-milk-tea.png";
+import strawberryMatchaLatte from "../assets/strawberry-matcha-latte.png";
+import peachFruitTea from "../assets/peach-fruit-tea.png";
+import passionFruitMangoTea from "../assets/passion-fruit-mango-tea.png";
+import mintChocolateMilkTea from "../assets/mint-chocolate-milk-tea.png";
+import chocolateMilkTea from "../assets/chocolate-milk-tea.png";
+import raspberryFruitTea from "../assets/raspberry-fruit-tea.png";
 
 const DailyDrink = () => {
   const [dailyDrink, setDailyDrink] = useState(null);
   const { getMenu } = useMenu();
+  const { addToCart } = useContext(CartContext);
+
+  const menuImages = {
+    "Taro Milk Tea": taroMilkTea,
+    "Strawberry Matcha Latte": strawberryMatchaLatte,
+    "Peach Fruit Tea": peachFruitTea,
+    "Passion Fruit Mango Tea": passionFruitMangoTea,
+    "Mint Chocolate Milk Tea": mintChocolateMilkTea,
+    "Chocolate Milk Tea": chocolateMilkTea,
+    "Raspberry Fruit Tea": raspberryFruitTea,
+  };
 
   useEffect(() => {
     const fetchDailyDrink = async () => {
@@ -39,7 +58,11 @@ const DailyDrink = () => {
       {dailyDrink && (
         <div className="mx-auto flex max-w-212.5 items-center gap-9 rounded-3xl border-2 border-[#f3dce6] bg-white p-7.5 text-left shadow-[0_8px_25px_rgba(100,70,80,0.08)]">
           <div className="flex size-57.5 min-w-57.5 items-center justify-center rounded-2xl bg-[#ffe0eb]">
-            {/* Daily drink image will go here */}
+            <img
+              src={menuImages[dailyDrink.name]}
+              alt={dailyDrink.name}
+              className="size-50 object-contain"
+            />
           </div>
 
           <div>
@@ -55,7 +78,11 @@ const DailyDrink = () => {
               {dailyDrink.price}€
             </p>
 
-            <button className="cursor-pointer rounded-full bg-[#d982a8] px-5.5 py-3 font-semibold text-white transition hover:bg-[#b96891]">
+            <button
+              type="button"
+              onClick={() => addToCart(dailyDrink)}
+              className="cursor-pointer rounded-full bg-[#d982a8] px-5.5 py-3 font-semibold text-white transition hover:bg-[#b96891]"
+            >
               ADD TO ORDER
             </button>
           </div>
