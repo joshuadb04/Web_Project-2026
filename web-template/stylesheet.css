@@ -660,3 +660,9 @@ button {
   align-self: center;
   background-color: #d983a8;
 }
+.site-footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #f3dce6;
+  color: #574752;
+}
