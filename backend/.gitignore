@@ -6,4 +6,4 @@ node_modules
 uploads/*
 !uploads/.gitkeep
 public/uploads/*
-test
+
