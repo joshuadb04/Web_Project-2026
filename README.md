@@ -8,3 +8,5 @@ Start by opening the [Mochi & Milk website](https://mochi-and-milk-frontend.onre
 4. Add items to the **Cart**, change quantities, and complete a checkout.
 5. Open **Profile** to view your order history.
 6. Check the **location/map** and navigate between the main pages.
+
+ADMIN RIGHTS (to be determined)
