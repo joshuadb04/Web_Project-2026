@@ -2,6 +2,7 @@ import { Outlet, useLocation } from "react-router";
 import { useEffect, useContext } from "react";
 import Header from "./Header.jsx";
 import { UserContext } from "../contexts/UserContext.jsx";
+import Footer from "../components/Footer";
 
 const Layout = () => {
   const { handleAutoLogin } = useContext(UserContext);
@@ -25,6 +26,7 @@ const Layout = () => {
     <>
       <Header />
       <Outlet />
+      <Footer />
     </>
   );
 };
