@@ -10,23 +10,19 @@ const coordinates = shop.location.coordinates;
 const longitude = coordinates[0];
 const latitude = coordinates[1];
 
+navigator.geolocation.getCurrentPosition((position) => {
+  const x1 = position.coords.longitude;
+  const y1 = position.coords.latitude;
 
-navigator.geolocation.getCurrentPosition(
-  (position) => {
-    const x1 = position.coords.longitude;
-    const y1 = position.coords.latitude;
-    
-    const x2 = longitude;
-    const y2 = latitude;
+  const x2 = longitude;
+  const y2 = latitude;
 
-    const distance = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
-    const distanceInKilometres = distance * 111;
+  const distance = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+  const distanceInKilometres = distance * 111;
 
-    const result = document.querySelector("#distance");
-    result.innerHTML = `You are about ${distanceInKilometres.toFixed(1)} km from the shop.`;
-  },
-);
-
+  const result = document.querySelector("#distance");
+  result.innerHTML = `You are about ${distanceInKilometres.toFixed(1)} km from the shop.`;
+});
 
 const map = L.map("map").setView([latitude, longitude], 13);
 
