@@ -9,6 +9,10 @@ import {
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
+/**
+ * Register a new user.
+ * @route POST /api/v1/users
+ */
 const postUser = async (req, res, next) => {
   const result = await addUser(req.body);
 
@@ -22,6 +26,10 @@ const postUser = async (req, res, next) => {
   }
 };
 
+/**
+ * Authenticate a user and create a JWT token.
+ * @route POST /api/v1/users/login
+ */
 const login = async (req, res, next) => {
   const { email, password } = req.body;
 
@@ -61,6 +69,10 @@ const login = async (req, res, next) => {
   res.json({ message: "Success", token, user: payload });
 };
 
+/**
+ * Get the authenticated user from the JWT token.
+ * @route GET /api/v1/users/token
+ */
 const getUserByToken = async (req, res, next) => {
   try {
     const authorization = req.headers.authorization;
@@ -93,6 +105,10 @@ const getUserByToken = async (req, res, next) => {
   }
 };
 
+/**
+ * Update user profile information.
+ * @route PUT /api/v1/users/:id
+ */
 const putUser = async (req, res, next) => {
   const result = await updateUser(req.body, req.params.id);
 
@@ -105,6 +121,10 @@ const putUser = async (req, res, next) => {
   }
 };
 
+/**
+ * Change the authenticated user's password.
+ * @route PUT /api/v1/users/password
+ */
 const putPassword = async (req, res, next) => {
   try {
     const { currentPassword, newPassword } = req.body;
@@ -139,6 +159,10 @@ const putPassword = async (req, res, next) => {
   }
 };
 
+/**
+ * Update a user's profile picture.
+ * @route PUT /api/v1/users/:id/profile-picture
+ */
 const putProfilePicture = async (req, res, next) => {
   try {
     if (!req.file) {

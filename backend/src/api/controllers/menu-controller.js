@@ -6,11 +6,19 @@ import {
   removeMenuItem,
 } from "../models/menu-model.js";
 
+/**
+ * Get all menu items.
+ * @route GET /api/v1/menu
+ */
 const getMenuList = async (req, res) => {
   const menuItems = await listAllMenuItems();
   res.json(menuItems);
 };
 
+/**
+ * Get a menu item by ID.
+ * @route GET /api/v1/menu/:id
+ */
 const getMenuItemById = async (req, res, next) => {
   const menuItem = await findMenuItemById(req.params.id);
 
@@ -23,6 +31,10 @@ const getMenuItemById = async (req, res, next) => {
   }
 };
 
+/**
+ * Add a new menu item.
+ * @route POST /api/v1/menu
+ */
 const postMenuItem = async (req, res, next) => {
   const result = await addMenuItem(req.body);
 
@@ -36,6 +48,10 @@ const postMenuItem = async (req, res, next) => {
   }
 };
 
+/**
+ * Update a menu item by ID.
+ * @route PUT /api/v1/menu/:id
+ */
 const putMenuItem = async (req, res, next) => {
   const modify = await modifyMenuItem(req.body, req.params.id);
 
@@ -48,6 +64,10 @@ const putMenuItem = async (req, res, next) => {
   }
 };
 
+/**
+ * Delete a menu item by ID.
+ * @route DELETE /api/v1/menu/:id
+ */
 const deleteMenuItem = async (req, res, next) => {
   const del = await removeMenuItem(req.params.id);
 

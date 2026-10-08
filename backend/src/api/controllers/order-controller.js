@@ -1,10 +1,18 @@
 import { addOrder, findOrderById, listAllOrders, modifyOrder, removeOrder } from "../models/order-model.js";
 
+/**
+ * Get all orders.
+ * @route GET /api/v1/orders
+ */
 const getOrderList = async (req, res) => {
   const orders = await listAllOrders();
   res.json(orders);
 };
 
+/**
+ * Create a new order.
+ * @route POST /api/v1/orders
+ */
 const postOrder = async (req, res, next) => {
   const result = await addOrder(req.body);
 
@@ -18,6 +26,10 @@ const postOrder = async (req, res, next) => {
   }
 };
 
+/**
+ * Get an order by ID.
+ * @route GET /api/v1/orders/:id
+ */
 const getOrderById = async (req, res, next) => {
   const order = await findOrderById(req.params.id);
 
@@ -30,6 +42,10 @@ const getOrderById = async (req, res, next) => {
   }
 };
 
+/**
+ * Update an order by ID.
+ * @route PUT /api/v1/orders/:id
+ */
 const putOrder = async (req, res, next) => {
   const modify = await modifyOrder(req.body, req.params.id);
 
@@ -42,6 +58,10 @@ const putOrder = async (req, res, next) => {
   }
 };
 
+/**
+ * Delete an order by ID.
+ * @route DELETE /api/v1/orders/:id
+ */
 const deleteOrder = async (req, res, next) => {
   const del = await removeOrder(req.params.id);
 

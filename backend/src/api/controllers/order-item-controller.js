@@ -8,11 +8,19 @@ import {
 
 import { updateOrderCost } from "../models/order-model.js";
 
+/**
+ * Get all order items.
+ * @route GET /api/v1/order-items
+ */
 const getOrderItemList = async (req, res) => {
   const orderItems = await listAllOrderItems();
   res.json(orderItems);
 };
 
+/**
+ * Get an order item by ID.
+ * @route GET /api/v1/order-items/:id
+ */
 const getOrderItemById = async (req, res, next) => {
   const orderItem = await findOrderItemById(req.params.id);
 
@@ -25,6 +33,10 @@ const getOrderItemById = async (req, res, next) => {
   }
 };
 
+/**
+ * Create an order item and update the order cost.
+ * @route POST /api/v1/order-items
+ */
 const postOrderItem = async (req, res, next) => {
   const result = await addOrderItem(req.body);
 
@@ -46,6 +58,10 @@ const postOrderItem = async (req, res, next) => {
   }
 };
 
+/**
+ * Update an order item by ID.
+ * @route PUT /api/v1/order-items/:id
+ */
 const putOrderItem = async (req, res, next) => {
   const modify = await modifyOrderItem(req.body, req.params.id);
 
@@ -58,6 +74,10 @@ const putOrderItem = async (req, res, next) => {
   }
 };
 
+/**
+ * Delete an order item by ID.
+ * @route DELETE /api/v1/order-items/:id
+ */
 const deleteOrderItem = async (req, res, next) => {
   const del = await removeOrderItem(req.params.id);
 
