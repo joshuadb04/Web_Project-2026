@@ -9,4 +9,13 @@ Start by opening the [Mochi & Milk website](https://mochi-and-milk-frontend.onre
 5. Open **Profile** to view your order history.
 6. Check the **location/map** and navigate between the main pages.
 
-ADMIN RIGHTS (to be determined)
+### Disclaimer
+
+The website is deployed using Render and Aiven. If the deployed services have been stopped or are no longer available, some features may not work correctly. In that case, the website may not load properly or may be unable to connect to the backend and database.
+
+## Contributors
+
+- [Joshua](https://github.com/joshuadb04)
+- [Amber](https://github.com/amberward423)
+- [Princess](https://github.com/prihuu)
+- [Aung](https://github.com/Aung-Thuya-Han)
