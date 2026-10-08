@@ -1,6 +1,10 @@
 import mysql from "mysql2";
 import "dotenv/config";
 
+const closePool = () => {
+  return pool.end();
+};
+
 const pool = mysql.createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
@@ -16,4 +20,6 @@ const pool = mysql.createPool({
 });
 
 const promisePool = pool.promise();
+
+export { closePool };
 export default promisePool;
