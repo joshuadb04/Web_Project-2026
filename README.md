@@ -19,3 +19,9 @@ The website is deployed using Render and Aiven. If the deployed services have be
 - [Amber](https://github.com/amberward423)
 - [Princess](https://github.com/prihuu)
 - [Aung](https://github.com/Aung-Thuya-Han)
+
+## Admin Login
+
+- [Admin Credentials](https://docs.google.com/document/d/1QN3EXujx0pHGUbabCVyP5O_aX1jgtFJEQHM21Fpxi30/edit?usp=drive_link)
+
+Restricted access (assessors only).
